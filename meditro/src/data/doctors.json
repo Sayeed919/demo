@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "name": "Dr. Bennett",
+      "speciality": "Dermatologist",
+      "experience": 5,
+      "ratings": 4,
+      "image": "dr1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Davis Engel",
+      "speciality": "Dentist",
+      "experience": 3,
+      "ratings": 3,
+      "image": "dr2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Mark",
+      "speciality": "Pediatrics",
+      "experience": 8,
+      "ratings": 5,
+      "image": "dr3.jpg"
+    }
+  ]
