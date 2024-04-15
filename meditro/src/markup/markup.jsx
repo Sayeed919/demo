@@ -50,7 +50,7 @@ import MyAppointment from './pages/myappointment';
 import Prescription from './pages/prescription';
 import MyProfile from './pages/myprofile';
 
-
+import Categories from './pages/categories';
 
 
 
@@ -89,7 +89,7 @@ class Markup extends Component {
 							<Route path='/doctor' element={<DoctorComponent/>} /> */}
               				{/* <Route path='/view_profile/:id' element={<ViewProfile />} />
               				<Route path='/book_visit/:id' element={<BookVisit />} /> */}
-
+							<Route path='/categories' element={<Categories />} />
 							<Route path='/doctor' element={<DoctorComponent />} />
              				<Route path='/view_profile/:id' element={<ViewProfile />} />
               				<Route path='/book_visit/:id' element={<BookVisit doctors={this.state.doctors} />} />
