@@ -1,0 +1,73 @@
+/* Increase font size for doctor and patient tab headings */
+#doctor-tab{
+    font-size: 20px; 
+}
+#patient-tab {
+  font-size: 20px; /* Adjust as needed */
+}
+
+/* Set size for Bootstrap icons */
+.icon i {
+  font-size: 10px;
+  width:"200px"
+   /* Adjust as needed */
+}
+
+/* Increase size of editor */
+#editor {
+  min-height: 250px; /* Adjust as needed */
+  font-size: 18px; /* Adjust as needed */
+}
+
+/* Font size for doctor and patient tabs */
+.nav-link {
+    font-size: 18px;
+  }
+  
+  
+  
+  
+  /* Bold, italic, underline styles */
+  .bold {
+    font-weight: bold;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  
+  /* Font color style */
+  .font-color {
+    color: black; /* Default font color */
+  }
+  
+  /* Font size styles */
+  .font-size-small {
+    font-size: 12px;
+  }
+  .font-size-normal {
+    font-size: 16px;
+  }
+  .font-size-large {
+    font-size: 20px;
+  }
+  
+  /* Alignment styles */
+  .text-justify {
+    text-align: justify;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+  
+
+/* Additional styling can be added here */
+

@@ -1,0 +1,16 @@
+.rotate-chevron {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
+  .navbar-container {
+    width: 300px; /* Adjust width as needed to match the header navbar */
+    /* Add any other styling as necessary */
+    height: 700px;
+}
+
+.navbar-vertical {
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  overflow-y: auto; /* Add vertical scroll bar */
+}
+
+  
