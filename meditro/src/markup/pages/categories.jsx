@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserMd, FaTooth, FaVenus, FaHome, FaLeaf, FaStethoscope } from 'react-icons/fa';
-
+import bnrImg1 from "../../images/banner/img1.jpg";
 const Categories = () => {
   const navigateTo = (route) => {
     window.location.href = route;
@@ -19,7 +19,7 @@ const Categories = () => {
   ];
 
   return (
-    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', padding: '20px' }}>
+    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', padding: '20px', backgroundImage: `url(${bnrImg1})` }}>
       <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '180px', flexWrap: 'wrap' }}>
         {categories.map(category => (
           <div key={category.id} className="category-container" style={{ backgroundColor: '#ffffff', padding: '80px', borderRadius: '10px', width: '400px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.9)', marginBottom: '20px', textAlign: 'center', color: '#12214a' }}>
