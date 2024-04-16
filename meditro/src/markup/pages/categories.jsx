@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserMd, FaTooth, FaVenus, FaHome, FaLeaf, FaStethoscope } from 'react-icons/fa';
-import bnrImg1 from "../../images/banner/img1.jpg";
-
-
 
 const Categories = () => {
   const navigateTo = (route) => {
@@ -22,29 +19,31 @@ const Categories = () => {
   ];
 
   return (
-    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', padding: '20px', backgroundImage: `url(${bnrImg1})`, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px',marginTop:'150px'}}>
+    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', padding: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '180px', flexWrap: 'wrap' }}>
         {categories.map(category => (
-          <div key={category.id} className="category-container" style={{ backgroundColor: '#ffffff', padding: '40px', borderRadius: '10px', width: '300px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.9)', marginBottom: '20px', textAlign: 'center', color: '#12214a' }}>
+          <div key={category.id} className="category-container" style={{ backgroundColor: '#ffffff', padding: '80px', borderRadius: '10px', width: '400px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.9)', marginBottom: '20px', textAlign: 'center', color: '#12214a' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
               <category.icon size={50} style={{ color: '#12214a' }} />
             </div>
-            <h2 style={{ margin: '10px 0', color: 'black', fontSize: '20px' }}>{category.name}</h2>
+            <h2 style={{ margin: '10px 0', color: 'black' }}>{category.name}</h2>
             <p style={{ marginBottom: '20px', fontSize: '14px' }}>{category.description}</p>
             <button onClick={() => navigateTo(category.route)} style={{
+              marginTop: '20px',
               padding: '8px 12px',
-              width: '200px',
-              height: '50px',
-              backgroundColor: '#12214a',
+              width: '200px', // Adjust width as needed
+              height: '50px', // Adjust height as needed
+              backgroundColor: '#12214a', // Background color for the button
               color: '#fff',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
-              transition: 'background-color 0.3s ease',
-              '&:hover': {
-                backgroundColor: '#eb5409',
+              transition: 'background-color 0.3s ease', // Add transition for smooth hover effect
+              '&:hover': { // Add hover effect
+                backgroundColor: '#eb5409', // Change background color on hover
               }
-            }}>Book Doctor</button>
+            }}
+            > Book Doctor</button>
           </div>
         ))}
       </div>
@@ -53,4 +52,3 @@ const Categories = () => {
 };
 
 export default Categories;
-

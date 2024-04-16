@@ -389,7 +389,7 @@ class ContactUs extends Component{
 			console.log(response.data);
 			if (response.status === 201) {
 				// If the contact form submission is successful, send an email to the user
-				const emailResponse = await axios.post("http://localhost:3030/email", {
+				const emailResponse = await axios.post("http://localhost:3030/contact-us", {
 					// Include necessary data for sending the email (e.g., user's name and email)
 					firstName: this.state.name,
 					email: this.state.email,
