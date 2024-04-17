@@ -1309,9 +1309,9 @@ const ProfilePage = () => {
                     scrollbarColor: 'transparent transparent',
                   }}
                 >
-                  <h5 style={{ marginTop: '30px', marginBottom: '50px' }}>
-                    {' '}
-                    Hello!! Let's build your dedicated profile.
+                    <h5 style={{ marginTop: '30px', marginBottom: '50px', alignItems: 'center', textAlign: 'center' }}>
+
+                    Hello!! Let's build your dedicated Doctor profile.
                   </h5>
                   <div>
                     <div

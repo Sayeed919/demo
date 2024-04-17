@@ -96,7 +96,7 @@ const NurseProfile = () => {
                 <form
                   className="form-container"
                   style={{
-                    height: '1700px',
+                    height: '1300px',
                     width: '1000px',
                     overflowY: 'scroll',
                     marginLeft: '85px',
@@ -109,10 +109,10 @@ const NurseProfile = () => {
                     scrollbarColor: 'transparent transparent',
                   }}
                 >
-                  <h5 style={{ marginTop: '30px', marginBottom: '50px' }}>
-                    {' '}
-                    Hello!! Let's build your dedicated profile.
-                  </h5>
+                  <h5 style={{ marginTop: '30px', marginBottom: '50px', alignItems: 'center', textAlign: 'center' }}>
+  Hello!! Let's Create Your Dedicated Nurse Profile.
+</h5>
+
                   <div>
                     <div
                       style={{
@@ -121,8 +121,8 @@ const NurseProfile = () => {
                         alignItems: 'center',
                       }}
                     >
-                      <div style={{ width: '30%' }}>
-                        <label style={{ marginLeft: '10px' }}>Title:</label>
+                      {/* <div style={{ width: '30%' }}> */}
+                        {/* <label style={{ marginLeft: '10px' }}>Title:</label>
                         <select
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
@@ -133,10 +133,10 @@ const NurseProfile = () => {
                           }}
                         >
                           <option value="Dr.">Dr.</option>
-                        </select>
-                      </div>
-                      <div style={{ width: '70%' }}>
-                        <label style={{ marginLeft: '10px' }}>Name:</label> <br />
+                        </select> */}
+                      {/* </div> */}
+                      <div style={{ width: '100%' }}>
+                        <label style={{ marginLeft: '10px' }}> Full Name:</label> <br />
                         <input
   type="text"
   placeholder="  Enter Your Name"

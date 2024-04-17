@@ -1327,6 +1327,11 @@ const Header = () => {
           linkName: 'doc_profile',
         },
         {
+          id: 'Nurse Profile',
+          displayName: 'Nurse Profile',
+          linkName: 'nurse_profile',
+        },
+        {
           id: 'Prescription',
           displayName: 'Prescription',
           linkName: 'prescription',

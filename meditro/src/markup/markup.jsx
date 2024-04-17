@@ -45,7 +45,7 @@ import Ayurveda from './pages/ayurveda';
 import VideoCall from './pages/videocall';
 import Chat from './pages/chat';
 import Profile from './pages/doc_profile';
-
+import NurseProfile from './pages/nurse_profile';
 import MyAppointment from './pages/myappointment';
 import Prescription from './pages/prescription';
 import MyProfile from './pages/myprofile';
@@ -117,6 +117,7 @@ class Markup extends Component {
 							<Route path='/videocall' element={<VideoCall/>} />
 							<Route path='/chat' element={<Chat/>} />
 							<Route path='/doc_profile' element={<Profile/>} />
+							<Route path='/nurse_profile' element={<NurseProfile/>} />
 
 
 							<Route path="*" element={<Error />} />
