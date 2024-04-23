@@ -1,90 +1,102 @@
-// import React from "react";
-// import { useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-// const DoctorDetails = () => {
-//   const location = useLocation();
-//   const doctor = location.state?.doctor;
+function DoctorDetails({ doctor, onAccept, onReject }) {
+  const { id } = useParams();
+  
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupImgSrc, setPopupImgSrc] = useState("");
+  const navigate = useNavigate(); // Hook for navigation
 
-//   if (!doctor) {
-//     return <div>Doctor not found</div>;
-//   }
-//   console.log('Doctor:', doctor); 
-//   return (
-//     <div className="container mt-5">
-//       <div className="row">
-//         <div className="col-md-4">
-//           <div className="card shadow-lg">
-//             <img src={doctor.doctorProfilepic} alt={doctor.doctorName} className="card-img-top rounded-circle" style={{ objectFit: 'cover', height: '300px', width: '300px', margin: 'auto' }} />
-//             <div className="card-body">
-//               <h5 className="card-title">{doctor.doctorName}</h5>
-//               <p className="card-text text-muted">Email: {doctor.emailAddress}</p>
-//               <p className="card-text text-muted">Contact: {doctor.contactNumber}</p>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="col-md-8">
-//           <div className="card shadow-lg">
-//             <div className="card-body">
-//               <h5 className="card-title">Qualifications</h5>
-//               <p className="card-text">{doctor.qualifications}</p>
-//               <h5 className="card-title">Experience</h5>
-//               <p className="card-text">{doctor.experience}</p>
-//               <h5 className="card-title">Skills</h5>
-//               <p className="card-text">{doctor.skills}</p>
-//               <h5 className="card-title">Brief Description</h5>
-//               <p className="card-text">{doctor.description}</p>
-//               <h5 className="card-title">Ratings</h5>
-//               <p className="card-text">{doctor.ratings}</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+  const handleImageClick = (imgSrc) => {
+    setPopupImgSrc(imgSrc);
+    setShowPopup(true);
+  };
 
-// export default DoctorDetails;
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
+  const handleAccept = (doctor) => {
+    onAccept(doctor);
+    navigate("/Header"); // Navigate back to the Doctors page
+  };
 
-import React from "react";
-
-function DoctorDetails({ doctor }) {
+  const handleReject = (doctor) => {
+    onReject(doctor);
+    navigate("/Header"); // Navigate back to the Doctors page
+  };
   return (
-    <div className="container my-5">
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <div className="row mb-4">
-            <div className="col-md-4 text-center">
-              <img alt="Doctor Profile" src={doctor.doctorProfilepic} className="avatar avatar-xl rounded-circle mb-3" style={{ width: '150px', height: '150px' }} />
-            </div>
-            <div className="col-md-8">
-              <div className="text-center mb-3">
-                <h2 style={{ color: 'blue' }}>{doctor.doctorName}</h2>
-              </div>
-            </div>
-          </div>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <h3 style={{ marginBottom: "20px", color: "#333", borderBottom: "2px solid #333", paddingBottom: "10px" }}>Doctor Details</h3>
+      <img src={doctor.doctorProfilepic} alt="Doctor" style={{ width: "150px", height: "150px", marginRight: "50px", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", cursor: "pointer" }} onClick={() => handleImageClick(doctor.doctorProfilepic)} />
+      <div style={{ display: "flex", marginBottom: "100px", marginLeft: "200px", marginTop: "-150px" }}>
+        <div>
+          <p style={{ marginBottom: "10px", fontSize: "18px" }}><strong>Name:</strong> {doctor.doctorName}</p>
+          <p style={{ marginBottom: "10px", fontSize: "18px" }}><strong>Email:</strong> {doctor.emailAddress}</p>
+          <p style={{ marginBottom: "10px", fontSize: "18px" }}><strong>Contact Number:</strong> {doctor.contactNumber}</p>
+          <p style={{ marginBottom: "10px", fontSize: "18px" }}><strong>Address:</strong> {doctor.address}</p>
+        </div>
+      </div>
+      <div style={{ marginBottom: "50px" }}>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Availability:</strong> {doctor.doctorAvailability}</p>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Fees:</strong> {doctor.price}</p>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Speciality:</strong> {doctor.speciality}</p>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Experience:</strong> {doctor.experience}</p>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Gender:</strong> {doctor.gender}</p>
+        <p style={{ marginBottom: "5px", fontSize: "18px" }}><strong>Education:</strong> {doctor.education}</p>
+      </div>
 
-          <div className="row mb-3">
-            <div className="col-md-6">
-              <p><strong>Email Address:</strong> <span className="text-muted">{doctor.emailAddress}</span></p>
-            </div>
-            <div className="col-md-6">
-              <p><strong>Contact Number:</strong> <span className="text-muted">{doctor.contactNumber}</span></p>
-            </div>
+      {/* Render Medical Registration */}
+      <div style={{ marginBottom: "40px" }}>
+        <h4 style={{ marginBottom: "10px", color: "#333", borderBottom: "1px solid #eee", paddingBottom: "5px" }}>Medical Registration</h4>
+        {doctor.MedicalRegistration.map((registration, index) => (
+          <div key={index} style={{ marginBottom: "10px", padding: "10px", border: "1px solid #eee", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Registration Number:</strong> {registration.RegistrationNumber}</p>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Registration Council:</strong> {registration.RegistrationCouncil}</p>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Registration Year:</strong> {registration.RegistrationYear}</p>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Medical Certificate:</strong></p>
+            <img src={registration.MedicalCertificate} alt="Medical Certificate" style={{ maxWidth: "300px", borderRadius: "10px", cursor: "pointer" }} onClick={() => handleImageClick(registration.MedicalCertificate)} />
           </div>
-          <div className="row mb-3">
-            <div className="col-md-6">
-              <p><strong>Doctor's Availability:</strong> <span className="text-muted">{doctor.doctorAvailability}</span></p>
-            </div>
-            <div className="col-md-6">
-              <p><strong>Status:</strong> <span className={`badge bg-${doctor.status === 'Active' ? 'success' : 'warning'}`}>{doctor.status}</span></p>
-            </div>
+        ))}
+      </div>
+
+      {/* Render Clinic Details */}
+      <div style={{ marginBottom: "60px" }}>
+        <h4 style={{ marginBottom: "10px", color: "#333", borderBottom: "1px solid #eee", paddingBottom: "5px" }}>Clinic Details</h4>
+        {doctor.ClinicDetails.map((clinic, index) => (
+          <div key={index} style={{ marginBottom: "10px", padding: "10px", border: "1px solid #eee", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Clinic Name:</strong> {clinic.ClinicName}</p>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>Location:</strong> {clinic.ClinicLocation}</p>
+            <p style={{ marginBottom: "5px", fontSize: "16px" }}><strong>City:</strong> {clinic.ClinicCity}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Identity Proof */}
+      <div>
+        <h4 style={{ marginBottom: "10px", color: "#333", borderBottom: "1px solid #eee", paddingBottom: "5px" }}>Identity Proof</h4>
+        <img src={doctor.IdentityProof} alt="Identity proof" style={{ maxWidth: "200px", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", cursor: "pointer" }} onClick={() => handleImageClick(doctor.IdentityProof)} />
+      </div>
+
+      {/* Popup Modal */}
+      {showPopup && (
+        <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.5)", zIndex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ backgroundColor: "#fff", padding: "20px", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)", position: "relative", maxWidth: "80%", maxHeight: "80vh" }}>
+            <span style={{ position: "absolute", top: "-1px", right: "10px", fontSize: "24px", cursor: "pointer" }} onClick={closePopup}>&times;</span>
+            <img src={popupImgSrc} alt="Popup" style={{ width: "100%", maxHeight: "100%", borderRadius: "5px" }} />
           </div>
         </div>
+      )}
+
+      {/* Accept and Reject Buttons */}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button onClick={() => handleAccept(doctor)} style={{ marginRight: "10px", padding: "10px 20px", fontSize: "16px", backgroundColor: "#28a745", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>Accept</button>
+        <button onClick={() => handleReject(doctor)} style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "#dc3545", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>Reject</button>
       </div>
     </div>
   );
 }
 
 export default DoctorDetails;
-
