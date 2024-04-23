@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import './Faq.css';
 
 const FAQs = () => {
@@ -18,7 +18,7 @@ const FAQs = () => {
   return (
     <div className="container">
       <div className="h-screen flex-grow-1 overflow-y-lg-auto" style={{ marginLeft: '-20px', paddingLeft: '35px' }}>
-        {/* Header */}
+       
         <div className="pt-7 " style={{ marginLeft: '-10px' }}>
           <h3 style={{ color: 'blue', fontFamily: 'Verdana, Geneva, Tahoma, sans-serif', fontSize: '30px', textAlign: 'left', marginLeft: '-10px' }}>Frequently Asked Questions(FAQs)</h3>
         </div>
@@ -124,6 +124,163 @@ const FAQs = () => {
             </div>
           </div>
         </div>
+  );
+};
+
+export default FAQs;*/
+
+import React, { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
+
+const FAQs = () => {
+  const [answersVisible, setAnswersVisible] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [faqType, setFaqType] = useState('doctor');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+
+  // Data for doctor FAQs
+  const [doctorFAQs, setDoctorFAQs] = useState([
+   
+    {
+      id: 'doctor-question2',
+      question: 'How do I register as a doctor?',
+      answer: 'To register as a doctor, please visit our registration page and fill out the necessary information.'
+    },
+    // Other doctor FAQs...
+  ]);
+
+  // Data for patient FAQs
+  const [patientFAQs, setPatientFAQs] = useState([
+    {
+      id: 'patient-question1',
+      question: 'How do I make an appointment?',
+      answer: 'To make an appointment, please log in to your patient account and choose an available time slot from the schedule.'
+    },
+    // Other patient FAQs...
+  ]);
+
+  const toggleAnswer = (questionId) => {
+    setAnswersVisible((prevAnswersVisible) => ({
+      ...prevAnswersVisible,
+      [questionId]: !prevAnswersVisible[questionId],
+    }));
+  };
+
+  const renderFAQs = (faqs) => {
+    const handleDeleteFAQ = (id) => {
+      if (faqType === 'doctor') {
+        setDoctorFAQs(doctorFAQs.filter(faq => faq.id !== id));
+      } else {
+        setPatientFAQs(patientFAQs.filter(faq => faq.id !== id));
+      }
+    };
+  
+    return faqs.map((faq) => (
+      <div className="faq-box" key={faq.id} style={{ marginBottom: '20px', border: '1px solid #ccc', borderRadius: '5px', padding: '10px',marginLeft:'-60px' }}>
+        <div className="faq-question" onClick={() => toggleAnswer(faq.id)}>
+          {faq.question}
+          <span className="toggle-icon">{answersVisible[faq.id] ? '▼' : '►'}</span>
+          <FaTrash onClick={() => handleDeleteFAQ(faq.id)} style={{ cursor: 'pointer', marginLeft: '10px' }} />
+        </div>
+        <div id={faq.id + '-answer'} className="faq-answer" style={{ display: answersVisible[faq.id] ? 'block' : 'none' }}>
+          {faq.answer}
+        </div>
+      </div>
+    ));
+  };
+  
+
+  const handleAddFAQ = () => {
+    // Add FAQ based on selected type (doctor/patient)
+    const newFAQ = { id: ${faqType}-question${faqType === 'doctor' ? doctorFAQs.length + 1 : patientFAQs.length + 1}, question, answer };
+    if (faqType === 'doctor') {
+      setDoctorFAQs([...doctorFAQs, newFAQ]);
+    } else {
+      setPatientFAQs([...patientFAQs, newFAQ]);
+    }
+    setModalOpen(false);
+    setQuestion('');
+    setAnswer('');
+  };
+  
+
+  return (
+    <div className="container">
+      <div className="h-screen flex-grow-1 overflow-y-lg-auto" style={{ marginLeft: '-20px', paddingLeft: '35px' }}>
+        {/* Header */}
+        <div className="pt-7 " style={{ marginLeft: '-10px' }}>
+          <h3 style={{ color: 'blue', fontFamily: 'Verdana, Geneva, Tahoma, sans-serif', fontSize: '30px', textAlign: 'left', marginLeft: '-10px' }}>Frequently Asked Questions(FAQs)</h3>
+        </div>
+        <div className="container">
+          <div className="row justify-content-end pt-3">
+            <div className="col-auto ">
+              <button type="button" className="btn btn-primary" onClick={() => setModalOpen(true)}>+ Add FAQs</button>
+            </div>
+          </div>
+          
+          <div className="container-fluid">
+            <ul className="nav nav-tabs" id="myTab" role="tablist">
+              <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="doctor-tab" data-bs-toggle="tab" data-bs-target="#doctor" type="button" role="tab" aria-controls="doctor" aria-selected="true" style={{ fontSize: "18px", marginLeft: "-70px" }}>Doctor</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="patient-tab" data-bs-toggle="tab" data-bs-target="#patient" type="button" role="tab" aria-controls="patient" aria-selected="false" style={{ fontSize: "18px" }}>Patient</button>
+              </li>
+            </ul>
+            <div className="row mt-8" style={{ paddingLeft: "5px", marginTop: "-30px" }}>
+              <div className="col">
+                <p className="text-left" style={{ fontWeight: 'bold', marginLeft: '-70px' }}>All added FAQs</p>
+              </div>
+            </div>
+            
+            <div className="tab-content" id="myTabContent">
+              <div className="tab-pane fade show active" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                {renderFAQs(doctorFAQs)}
+              </div>
+
+              <div className="tab-pane fade" id="patient" role="tabpanel" aria-labelledby="patient-tab">
+                {renderFAQs(patientFAQs)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Add FAQ Modal */}
+      {modalOpen && (
+        <div className="modal" style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
+          <div className="modal-dialog" style={{ maxWidth: '600px', margin: '100px auto' }}>
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Add FAQ</h5>
+                <button type="button" className="btn-close" onClick={() => setModalOpen(false)}></button>
+              </div>
+              <div className="modal-body">
+                <div className="mb-3">
+                  <label htmlFor="faqType" className="form-label">FAQ Type:</label>
+                  <select className="form-select" id="faqType" value={faqType} onChange={(e) => setFaqType(e.target.value)}>
+                    <option value="doctor">Doctor</option>
+                    <option value="patient">Patient</option>
+                  </select>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="question" className="form-label">Question:</label>
+                  <input type="text" className="form-control" id="question" value={question} onChange={(e) => setQuestion(e.target.value)} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="answer" className="form-label">Answer:</label>
+                  <textarea className="form-control" id="answer" rows="3" value={answer} onChange={(e) => setAnswer(e.target.value)}></textarea>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary" onClick={handleAddFAQ}>Add FAQ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
