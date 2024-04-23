@@ -49,8 +49,16 @@ import NurseProfile from './pages/nurse_profile';
 import MyAppointment from './pages/myappointment';
 import Prescription from './pages/prescription';
 import MyProfile from './pages/myprofile';
+import PathologyProfile from './pages/pathology_profile';
+import PhysiotherapyProfile from './pages/physiotherapy_profile';
+import BookEmergency from './pages/book_emergency';
+
 
 import Categories from './pages/categories';
+import Nurse from './pages/nurse';
+import NurseViewProfile from './pages/nurse_viewProfile';
+
+
 
 
 
@@ -118,6 +126,12 @@ class Markup extends Component {
 							<Route path='/chat' element={<Chat/>} />
 							<Route path='/doc_profile' element={<Profile/>} />
 							<Route path='/nurse_profile' element={<NurseProfile/>} />
+							<Route path='/nurse' element={<Nurse/>}/>
+							<Route path='/nurse_viewProfile/:id' element={<NurseViewProfile />} />
+							<Route path='/pathology_profile' element={<PathologyProfile/>} />
+							<Route path='/physiotherapy_profile' element={<PhysiotherapyProfile/>} />
+							<Route path='/book_emergency' element={<BookEmergency />} />
+
 
 
 							<Route path="*" element={<Error />} />

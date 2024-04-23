@@ -65,7 +65,7 @@ function FormLogin() {
         e.preventDefault();
         try {
             // Make POST request to login API
-            const response = await axios.post('http://localhost:3030/login', { email, password });
+            const response = await axios.post('http://51.79.225.216:3030/login', { email, password });
             console.log(response.data);
             // Redirect to services page upon successful login
             navigate('/services');

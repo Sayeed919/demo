@@ -110,7 +110,7 @@ const NurseProfile = () => {
                   }}
                 >
                   <h5 style={{ marginTop: '30px', marginBottom: '50px', alignItems: 'center', textAlign: 'center' }}>
-  Hello!! Let's Create Your Dedicated Nurse Profile.
+  Hello!! Let's Create Your Profile.
 </h5>
 
                   <div>

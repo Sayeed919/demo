@@ -1311,7 +1311,7 @@ const ProfilePage = () => {
                 >
                     <h5 style={{ marginTop: '30px', marginBottom: '50px', alignItems: 'center', textAlign: 'center' }}>
 
-                    Hello!! Let's build your dedicated Doctor profile.
+                    Hello!! Let's build your profile.
                   </h5>
                   <div>
                     <div

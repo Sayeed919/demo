@@ -16,9 +16,9 @@ class BlogDetails extends Component {
         return (
             <>
                 <div className="page-content bg-white">
-                    <div className="container-fluid  p-0">
-                        <div className="row justify-content-center m-0 align-items-center"> {/* Centering the content */}
-                            <div className="col-lg-12 p-0">
+                    <div className="container-fluid  p-0" >
+                        <div className="row justify-content-center m-0 align-items-center" > {/* Centering the content */}
+                            <div className="col-lg-12 p-0" >
                                 <div className="banner-wraper">
                                     <div className="page-banner" style={{ backgroundImage: "url(" + bnrImg1 + ")" }}>
                                     <div className="container">
@@ -38,7 +38,7 @@ class BlogDetails extends Component {
                                     </div>
                                 </div>
 
-                                <section className="section-area section-sp1 bg-white">
+                                <section className="section-area section-sp1 bg-white" style={{marginTop:'-190px'}}>
                                     <div className="row justify-content-center m-0">
                                         <div className="col-md-10 col-lg-8 col-xl-7 p-0">
                                             <div className="blog-card blog-single">

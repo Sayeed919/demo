@@ -153,7 +153,7 @@ const DoctorComponent = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(()=> {
-    fetch('http://localhost:3030/dermatologist')
+    fetch('http://51.79.225.216:3030/dermatologist')
     .then(response => response.json())
     .then(data => setDoctors(data))
     .catch(err => console.error(err));

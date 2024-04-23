@@ -385,11 +385,11 @@ class ContactUs extends Component{
 		e.preventDefault();
 		try {
 			// Send the contact form data to your backend API endpoint
-			const response = await axios.post("http://localhost:3030/contact", this.state);
+			const response = await axios.post("http://51.79.225.216:3030/contact", this.state);
 			console.log(response.data);
 			if (response.status === 201) {
 				// If the contact form submission is successful, send an email to the user
-				const emailResponse = await axios.post("http://localhost:3030/contact-us", {
+				const emailResponse = await axios.post("http://51.79.225.216:3030/email", {
 					// Include necessary data for sending the email (e.g., user's name and email)
 					firstName: this.state.name,
 					email: this.state.email,

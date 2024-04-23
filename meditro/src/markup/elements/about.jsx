@@ -30,7 +30,7 @@ class aboutSection extends Component{
 							<div className="col-lg-6 mb-30">
 								<div className="heading-bx">
 									
-									<h1 className="title">Put Your Health First</h1>
+									<h1 className="title">Put your Health first</h1>
 									<p>At <span style={{ fontWeight: 'bold' , color: '#3D3AFF'}}>TeleHealth-Trail</span>, we are dedicated to providing exceptional healthcare services with compassion, integrity, expertise and focus on patient-centered care</p>
 								</div>
 								<div className="row">

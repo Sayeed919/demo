@@ -1346,6 +1346,16 @@ const Header = () => {
           displayName: 'Logout',
           linkName: 'Logout',
         },
+        {
+          id: 'Physiotherapy Profile',
+          displayName: 'Physiotherapy Profile',
+          linkName: 'physiotherapy_profile',
+        },
+        {
+          id: 'Pathology Profile',
+          displayName: 'Pathology Profile',
+          linkName: 'pathology_profile',
+        },
       ],
     },
   ];

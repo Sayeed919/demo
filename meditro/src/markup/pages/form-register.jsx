@@ -231,7 +231,7 @@ const FormLogin = () => {
     const { firstName, email, username, password } = state;
 
     try {
-      const response = await axios.post('http://localhost:3030/users', {
+      const response = await axios.post('http://51.79.225.216:3030/users', {
         firstName,
         email,
         username,
@@ -241,7 +241,7 @@ const FormLogin = () => {
       console.log(response.data);
       setState(prevState => ({...prevState, successMessage: 'Registration successful...!!!'}));
 
-      await axios.post('http://localhost:3030/email', {
+      await axios.post('http://51.79.225.216:3030/email', {
         email,
         firstName
       });

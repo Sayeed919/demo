@@ -343,7 +343,7 @@ const Dermatologist = ({ name, speciality, experience, ratings, image }) => {
           {renderStars(ratings, '20px')} {ratings} Reviews
         </div>
         <div style={styles.buttons}>
-          <Link to="/view_profile" style={styles.viewProfile}>
+          <Link to="/view_profile/1" style={styles.viewProfile}>
             View Profile
           </Link>
         </div>

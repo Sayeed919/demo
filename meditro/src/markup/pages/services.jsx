@@ -278,7 +278,7 @@ class Services extends Component{
 						</div>
 					</div>
 					
-					<section className="section-area section-sp1">
+					<section className="section-area section-sp1" style={{marginTop:'-190px'}}>
 						<div className="container">
 							<div className="row">
 								<div className="col-lg-4 col-md-6 mb-30">
@@ -297,8 +297,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Diagnostics</h3>
 											<p>Innovating healthcare, better diagnostic outcomes.</p>
-											<Link to="/service-detail" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail" className="btn btn-primary light">View More</Link>
+												<Link to="/categories" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>											</div>
 									</div>
 								</div>
 								<div className="col-lg-4 col-md-6 mb-30">
@@ -317,8 +319,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Treatments</h3>
 											<p>A personal relationship with medical excellence.</p>
-											<Link to="/service-detail2" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail2" className="btn btn-primary light">View More</Link>
+												<Link to="/categories" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>											</div>
 									</div>
 								</div>
 								{/* <div className="col-lg-4 col-md-6 mb-30">
@@ -409,8 +413,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Home-Nurse </h3>
 											<p>Give your loved ones quality care you can trust.</p>
-											<Link to="/service-detail5" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail5" className="btn btn-primary light">View More</Link>
+												<Link to="/nurse" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>											</div>
 									</div>
 								</div>
 								
@@ -431,8 +437,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Emergency</h3>
 											<p>Emergency Service, we're faster than you think.</p>
-											<Link to="/service-detail4" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail4" className="btn btn-primary light">View More</Link>
+												<Link to="/book_emergency" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>											</div>
 									</div>
 								</div>
 								<div className="col-lg-4 col-md-6 mb-30">
@@ -448,8 +456,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Pathologies</h3>
 											<p>Advancing healthcare with cutting-edge lab technology.</p>
-											<Link to="/service-detail3" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail3" className="btn btn-primary light">View More</Link>
+												<Link to="/booking" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>											</div>
 									</div>
 								</div>
 								<div className="col-lg-4 col-md-6 mb-30">
@@ -466,8 +476,10 @@ class Services extends Component{
 										<div className="icon-content">
 											<h3 className="ttr-title">Physiotherapy</h3>
 											<p>Getting you better is great, keeping you that way is better.</p>
-											<Link to="/service-detail6" className="btn btn-primary light">View More</Link>
-										</div>
+											<div className="btn-group">
+												<Link to="/service-detail6" className="btn btn-primary light">View More</Link>
+												<Link to="/booking" className="btn btn-primary light" style={{marginLeft: '10px'}}>Book Now</Link>
+											</div>										</div>
 									</div>
 								</div>
 							</div>	
