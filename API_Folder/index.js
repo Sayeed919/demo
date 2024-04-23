@@ -176,17 +176,6 @@ app.post('/email', async (req, res) => {
         res.status(500).json({ error: 'Error sending registration email' });
     }
 });
-app.post('/contact-us', async (req, res) => {
-    const { email, firstName } = req.body;
-
-    try {
-        await sendContactUsEmail(email, firstName);
-        res.status(200).json({ message: 'Contact successful. Email sent.' });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ error: 'Error sending Contact email' });
-    }
-});
 
 // Function to send registration email
 async function sendRegistrationEmail(email, firstName) {
@@ -206,31 +195,6 @@ async function sendRegistrationEmail(email, firstName) {
             to: email,
             subject: 'Registration Successful',
             text: `Hello ${firstName},\n\nThank you for registering with us. Your registration was successful.`
-        };
-
-        // Send email
-        await transporter.sendMail(mailOptions);
-    } catch (error) {
-        throw new Error('Error sending email: ' + error.message);
-    }
-}
-async function sendContactUsEmail(email, firstName) {
-    try {
-        // Create transporter using nodemailer
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: "rojeeshaikh786@gmail.com", // Replace with your Gmail email
-                pass: "eivz uvib wena epsw" // Replace with your Gmail password
-            }
-        });
-
-        // Define email options
-        const mailOptions = {
-            from: "rojeeshaikh786@gmail.com",
-            to: email,
-            subject: 'Contact Successful',
-            text: `Hello ${firstName},\n\nThank you for contacting us. Our team will connect with you soon.`
         };
 
         // Send email
